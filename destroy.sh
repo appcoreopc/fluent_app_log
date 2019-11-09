@@ -1,0 +1,2 @@
+kubectl delete ClusterRoleBinding fluentd
+kubectl delete serviceaccount fluentd
