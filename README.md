@@ -16,3 +16,14 @@ Execute :-
 
 
 
+External dependecies :
+
+Elastic search setup
+
+sudo docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.4.2
+
+
+
+To search all index 
+
+curl -X GET http://localhost:9200/_search?pretty=true&q=*:*
