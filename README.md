@@ -13,9 +13,6 @@ Execute :-
 2019-11-09 06:15:54 +0000 [info]: starting fluentd-1.7.4 pid=7 ruby="2.6.5"
 2019-11-09 06:15:54 +0000 [info]: spawn command to main:  cmdline=["/usr/local/bin/ruby", "-Eascii-8bit:ascii-8bit", "/fluentd/vendor/bundle/ruby/2.6.0/bin/fluentd", "-c", "/fluentd/etc/fluent.conf", "-p", "/fluentd/plugins", "--gemfile", "/fluentd/Gemfile", "--under-supervisor"]
 
-
-
-
 External dependecies :
 
 Elastic search setup
@@ -23,7 +20,21 @@ Elastic search setup
 sudo docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.4.2
 
 
-
 To search all index 
 
 curl -X GET http://localhost:9200/_search?pretty=true&q=*:*
+
+
+To have some fun 
+kubectl create -f app.yml
+kubectl create -f serviceweb.yml
+
+
+## when you create deployments, you are confined to the clusters, unless you say you want access to external resources.
+
+kubectl port-forward webapp-ccc474bc6-mmrcv 9005:9005
+
+kubectl logs webapp<pod name>
+
+
+
